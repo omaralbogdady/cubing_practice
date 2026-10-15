@@ -3,6 +3,7 @@ from guizero import App, Text, Box, PushButton, Slider
 
 # Variables -------------
 num_of_questions = 1
+question_num = 1
 
 # Functions -------------
 def digit_2_menu():
@@ -12,11 +13,13 @@ def digit_2_menu():
 def start(digit_cube, num_o_questions):
     two_digit_menu.hide()
     two_digit_mode.show()
+    print(num_of_questions)
+    two_digit_question.text = f"Question {question_num}/{num_of_questions}"
     # print(f"{digit_cube}-digit cubes with {num_of_questions} questions")
 
 def slider_change(slider_value):
     global num_of_questions
-    num_of_questions = slider_value
+    num_of_questions = num_of_questions_slider.value
 
 # App -------------------
 app = App(title="Cubing Practice Simulator")
@@ -45,6 +48,6 @@ start_button = PushButton(two_digit_menu, text="Start", command=start, args=[2, 
 two_digit_mode = Box(app)
 two_digit_mode.hide()
 
-two_digit_question = Text(two_digit_mode, text="What is the cube root of: [NUMBER]?")
+two_digit_question = Text(two_digit_mode, text=f"Question {question_num}/{num_of_questions}")
 
 app.display()
