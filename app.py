@@ -10,11 +10,11 @@ def digit_2_menu():
     menu.hide()
     two_digit_menu.show()
 
-def start(digit_cube, num_o_questions):
+def start(digit_cube):
     two_digit_menu.hide()
     two_digit_mode.show()
     print(num_of_questions)
-    two_digit_question.text = f"Question {question_num}/{num_of_questions}"
+    two_digit_question.value = f"Question {question_num}/{num_of_questions}"
     # print(f"{digit_cube}-digit cubes with {num_of_questions} questions")
 
 def slider_change(slider_value):
@@ -42,7 +42,7 @@ empty_space = Text(two_digit_menu, text=" ")
 
 num_of_questions_title = Text(two_digit_menu, text="Number of questions:")
 num_of_questions_slider = Slider(two_digit_menu, start=1, end=20, step=1, command=slider_change)
-start_button = PushButton(two_digit_menu, text="Start", command=start, args=[2, num_of_questions])
+start_button = PushButton(two_digit_menu, text="Start", command=start, args=[2])
 
 # 2-digit mode ----------
 two_digit_mode = Box(app)
